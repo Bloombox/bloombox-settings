@@ -20,8 +20,16 @@
         display: block;
       }
 
-      :host paper-card {
+      :host paper-card.settings-card {
         min-width: 650px;
+      }
+
+      :host paper-card.settings-card {
+        background: white;
+      }
+
+      :host paper-card.settings-card .card-content {
+        background: #efefef;
       }
     </style>
 
@@ -70,12 +78,12 @@
             // load default settings if none are persisted
             var data = this.get("persisted");
             if (data == null || data === undefined || (Array.isArray(data) && data.length == 0)) {
-              return bloom.util.defaultSettings();
+              return {"beta": {"enable": false}, "features": {"analytics": true, "offline": true}, "alerts": {"recipients": [], "events": {"security": true, "volume": true, "promo": true}}};
+              }
+              return data;
             }
-            return data;
           }
         }
-      }
-    });
+      });
   </script>
 </dom-module>
