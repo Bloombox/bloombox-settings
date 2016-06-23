@@ -1,27 +1,77 @@
+
+<!--
+`<bloombox-settings>` provides UI for viewing and editing partner-level settings.
+
+@group Bloombox Elements
+@element bloombox-settings
+@demo demo/index.html
+@homepage bloombox.github.io
+-->
+
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../bloombox-styles/bloombox-styles.html">
+
 
 <dom-module id="bloombox-settings">
   <template>
-    <style>
+    <style is="custom-style" include="bloombox-styles">
       :host {
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+
+    <paper-card heading="Account Settings" class="settings-card">
+      <div class="card-content">
+        <b>Settings coming soon.</b>
+      </div><!-- end .card-content -->
+    </paper-card><!-- end paper-card.settings-card -->
   </template>
 
   <script>
-    Polymer({
-
+    Polymer.BloomboxSettings = Polymer({
       is: 'bloombox-settings',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'bloombox-settings',
+        /**
+         * Partner-level settings as they currently exist in underlying
+         * persistence. This property is mostly for upward binding into
+         * persistence components.
+         */
+        persisted: {
+          type: Object,
+          notify: true
         },
-      },
 
+        /**
+         * Boolean flag indicating that we wish to edit partner-level
+         * settings, and should show a form to do so.
+         */
+        zerostate: {
+          type: Boolean,
+          notify: true,
+          default: false
+        },
+
+        /**
+         * Partner-level settings as they are currently expressed in
+         * this widget's state and UI. In `zerostate`, this reads from
+         * form values. In non-`zerostate`, this returns the currently-
+         * persisted settings, or a default set if none could be found.
+         */
+        settings: {
+          type: Object,
+          notify: true,
+          value: function() {
+            // load default settings if none are persisted
+            var data = this.get("persisted");
+            if (data == null || data === undefined || (Array.isArray(data) && data.length == 0)) {
+              return bloom.util.defaultSettings();
+            }
+            return data;
+          }
+        }
+      }
     });
   </script>
 </dom-module>
