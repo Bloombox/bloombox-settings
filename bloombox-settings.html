@@ -1,0 +1,27 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="bloombox-settings">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'bloombox-settings',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'bloombox-settings',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
