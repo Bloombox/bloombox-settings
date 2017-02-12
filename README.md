@@ -1,4 +1,6 @@
 
-##&lt;bloombox-settings&gt;  [![CircleCI](https://circleci.com/gh/Bloombox/bloombox-settings.svg?style=svg&circle-token=b3fcbe1068be40cb2a903d7169b8e42bf62c668f)](https://circleci.com/gh/Bloombox/bloombox-settings)
+##&lt;bloombox-settings&gt;  [![Build Status](https://buildbot.hq.mm-corp.systems/jenkins/buildStatus/icon?job=Bloombox/elements/bloombox-settings)](https://buildbot.hq.mm-corp.systems/jenkins/job/Bloombox/elements/bloombox-settings)
+
+[![Code Climate](https://codeclimate.com/repos/589ff9da6ed78a7d85000001/badges/9b45543f986448a3458f/gpa.svg)](https://codeclimate.com/repos/589ff9da6ed78a7d85000001/feed) [![Issue Count](https://codeclimate.com/repos/589ff9da6ed78a7d85000001/badges/9b45543f986448a3458f/issue_count.svg)](https://codeclimate.com/repos/589ff9da6ed78a7d85000001/feed)
 
 The `bloombox-settings` element provides UI for viewing and editing partner-level settings.
